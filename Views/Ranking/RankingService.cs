@@ -23,10 +23,10 @@ namespace WebApplication1.Views.Ranking
 
         private RankingService()
         {
-            scores.Add(8, new Score(8, "🧙", "Gandalf Mithrandir", 1298));
-            scores.Add(1, new Score(1, "🧝", "Legolas Greenleaf", 800));
-            scores.Add(7, new Score(7, "👦", "Frodo Baggins", 765));
-            scores.Add(3, new Score(3, "🧝‍♀️", "Galadriel Alatáriel", 721));
+            scores.Add(8, new Score(8, "🧙", "Renata Armel", 1298));
+            scores.Add(1, new Score(1, "🧝", "Gustavo Dias", 1120));
+            scores.Add(7, new Score(7, "👦", "Fernanda Carmem", 880));
+            scores.Add(3, new Score(3, "🧝‍♀️", "Gabriel trajber", 680));
         }
 
         public static int GetNextId()

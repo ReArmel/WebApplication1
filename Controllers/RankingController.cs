@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using System.Web.WebSockets;
 using WebApplication1.Models;
 using WebApplication1.Views.Ranking;
@@ -25,10 +26,15 @@ namespace WebApplication1.Controllers
             return View(modelo);
         }
         [HttpPost]
-        public ActionResult NovoScore(Score input)
+        public ActionResult NovoScore(NewScoreViewModel input)
         {
-            RankingService.Instance().Create(input);
-            return Redirect("/Ranking");
+            if (ModelState.IsValid)
+            {
+                RankingService.Instance().Create(input.NewScore);
+                return Redirect("/Ranking");
+            }
+            var modelo = new NewScoreViewModel();
+            return View(modelo);
         }
 
 
