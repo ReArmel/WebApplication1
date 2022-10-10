@@ -1,0 +1,53 @@
+﻿@model List<WebApplication1.Models.Score>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    ViewBag.Title = "Ranking de Jogadores";
+}
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ranking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row mt-4">
+        <div class="col col-md-6 offset-md-3 alert alert-primary bg-danger text-white text-center">
+            <span class="h1">RANKING</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-md-6 offset-md-3">
+            <div class="row alert alert-warning bg-dark text-white">
+                <span class="col col-1 mt-0 h1 text-center">#</span>
+                <span class="col col-7 mt-0 h1 border-left border-light">Jogador</span>
+                <span class="col col-4 mt-0 h1 border-left border-light text-right">Pontos</span>
+            </div>
+            @foreach (var score in Model)
+            {
+                <div class="row alert alert-warning">
+                    <input type="hidden" value="@score.Id" />
+                    <span class="col col-1 mt-0 h1 text-center">@score.Id</span>
+                    <span class="col col-7 mt-0 border-left border-dark h1 text-truncate">@score.Avatar&nbsp;@score.PlayerName</span>
+                    <span class="col col-4 mt-0 border-left border-dark h1 text-right">@score.Points</span>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-md-3 offset-md-6">
+            <input type="button" class="h1 mt-0 float-right text-center"
+                   value="➕ Novo Score" onclick="location.href='/ranking/novoscore'" />
+        </div>
+    </div>
+</body>
+</html>
